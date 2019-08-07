@@ -1,0 +1,57 @@
+body
+
+.cover
+{
+	max-width: 1200px;
+	max-height: 1500px;
+    border-top-left-radius: 60px;
+	border-bottom-right-radius: 60px;
+	margin: auto;
+	background:rgb(0,0,0,0.7);
+	box-sizing: border-box;
+	padding: 50px;
+	color: #fff;
+	margin-top: 100px;
+}
+
+
+h2,h1
+{
+	text-align: center;
+}
+input[type=text],input[type=password],input[type=email],input[type=date],input[type=time],textarea
+{
+	width: 100%;
+	box-sizing:border-box;
+	padding: 12px 5px;
+	background:rgb(0,0,0,0.10);
+	outline: none;
+	border:none;
+	border-bottom: 1px dotted #fff;
+	color:yellow;
+	border-radius: 5px;
+	margin:5px;
+	font-weight: bold;
+}
+
+input[type=submit]
+{
+	width: 10%;
+	box-sizing: border-box;
+	padding: 10px 0;
+	margin-top: 3px;
+	outline:none;
+	border:none;
+	background:green;
+	opacity: 0.7;
+	border-radius: 10px;
+	font-size: 30px;
+	color:#fff;
+	position: relative;
+	left: 980px;
+}
+input[type=submit]:hover
+{
+	background: red;
+	opacity:0.8;
+}
