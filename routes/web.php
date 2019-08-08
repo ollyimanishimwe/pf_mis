@@ -13,8 +13,11 @@ use Ap\User;
 */
 
 Route::get('/', function () {
-    return view('vendor/multiauth/admin/login');
+    return view('welcome');
 });
+// Route::get('/', function () {
+//     return view('vendor/multiauth/admin/login');
+// });
 
 
 
