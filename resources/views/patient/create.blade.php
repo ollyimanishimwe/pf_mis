@@ -49,7 +49,7 @@
                         </li> --}}
                         <h3 class="menu-title">Tasks</h3><!-- /.menu-title -->
                         <li class="menu-item-has-children dropdown">
-                            <a href="/pharmacist" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Search</a>
+                            <a href="{{url('/patient')}}"   > <i class="menu-icon fa fa-laptop"></i>Search</a>
                             {{-- <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
                                 <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
@@ -65,7 +65,7 @@
                             </ul> --}}
                         </li>
                         <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>View</a>
+                                <a href="#"   > <i class="menu-icon fa fa-laptop"></i>Register</a>
                             {{-- <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
                                 <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
@@ -321,14 +321,13 @@
                                                   <label for="n_id" class="control-label mb-1">National ID</label>
                                                   <input id="n_id" name="n_id" type="number" class="is-valid form-control-success form-control"
                                                   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                maxlength = "16" data-val="true" data-val-required="Please enter the National ID" data-val-n_id="Please enter a valid National ID" placeholder="" autocomplete="n_id" >
-
+                                                maxlength = "16"  required autofocus>
                                               </div>
                                           </div>
                                           <div class="col-6">
                                               <label for="names" class="control-label mb-1">Names</label>
                                               <div class="input-group">
-                                                  <input id="names" name="names" type="text" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the Names" data-val-names="Please enter the valid Names" autocomplete="names" maxlength="25">
+                                                  <input id="names" name="names" type="text" class="is-valid form-control-success form-control"  maxlength="25" required>
 
                                               </div>
                                           </div>
@@ -340,14 +339,14 @@
                                             <div class="col-3">
                                                     <div class="form-group">
                                                         <label for="family_chief" class="control-label mb-1">Family Chief</label>
-                                                        <input id="family_chief" name="family_chief" type="text" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the chief of family" data-val-insurance_company="Please enter a valid cheif of family"  autocomplete="" maxlength="15">
+                                                        <input id="family_chief" required name="family_chief" type="text" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the chief of family" data-val-insurance_company="Please enter a valid cheif of family"  autocomplete="" maxlength="15">
 
                                                     </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label for="phone" class="control-label mb-1">Phone Number</label>
-                                                    <input id="phone" name="phone" type="number"
+                                                    <input id="phone" name="phone" type="number" required
                                                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                 maxlength = "10"
                                                     class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the phone numbery" data-val-insurance_company="Please enter a valid phone number"  autocomplete="" maxlength="15">
@@ -357,14 +356,14 @@
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label for="insurance_company" class="control-label mb-1">Insurence Company</label>
-                                                    <input id="insurance_company" name="insurance_company" type="text" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"  autocomplete="insurance_company" maxlength="15">
+                                                    <input id="insurance_company" required name="insurance_company" type="text" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"  autocomplete="insurance_company" maxlength="15">
 
                                                 </div>
                                             </div>
                                           <div class="col-3">
                                             <label for="insurance_id" class="control-label mb-1">Insurance ID</label>
                                             <div class="input-group">
-                                                <input id="insurance_id" name="insurance_id" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                <input id="insurance_id" required name="insurance_id" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                 maxlength = "9"
                                                 type="number" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the insurance id" data-val-cc-cvc="Please enter a valid insurance id" autocomplete="off" maxlength="10">
 
@@ -377,7 +376,7 @@
 
                                             <label for="dob" class="control-label mb-1">Date Of Birth</label>
                                               <div class="input-group">
-                                                  <input id="dob" name="dob" type="date" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the Date Of Birth"  >
+                                                  <input id="dob" name="dob" required type="date" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the Date Of Birth"  >
 
                                               </div>
 
@@ -386,8 +385,8 @@
 
                                             <div class="form-group">
                                                   <label for="gender" class="control-label mb-1">Gender</label>
-                                                  <select name="gender" id="gender" class="form-control-sm form-control">
-                                                    <option value=""> Gender</option>
+                                                  <select name="gender" id="gender" required class="form-control-sm form-control">
+                                                    <option value="" disabled> Gender</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
 
@@ -402,7 +401,7 @@
                                           <div class="col-3">
                                               <div class="form-group">
                                                   <label for="province" class="control-label mb-1">Province</label>
-                                                  <select name="province" id="province" class="form-control-sm form-control">
+                                                  <select name="province" id="province" required class="form-control-sm form-control">
 					                                <option value="musanze"> north</option>
 					                                <option value="" disabled>west</option>
 					                                <option value="" disabled>east</option>
@@ -416,7 +415,7 @@
                                           <div class="col-3">
                                               <div class="form-group">
                                                   <label for="district" class="control-label mb-1">District</label>
-                                                  <select name="district" id="district" class="form-control-sm form-control">
+                                                  <select name="district" required id="district" class="form-control-sm form-control">
                                                     <option value="musanze"> musanze</option>
 					                                <option value="rulindo">rulindo</option>
 					                                <option value="gakenke">gakenke</option>
@@ -430,7 +429,7 @@
                                           <div class="col-3">
                                               <div class="form-group">
                                                   <label for="sector" class="control-label mb-1">Sector</label>
-                                                  <select name="sector" id="sector" class="form-control-sm form-control">
+                                                  <select name="sector" required id="sector" class="form-control-sm form-control">
 					                                <option value="" disabled> ====Musanze====</option>
                                                     <option value="Busogo"> Busogo</option>
                                                     <option value="Cyuve">Cyuve</option>
@@ -477,7 +476,7 @@
                                           <div class="col-3">
                                               <div class="form-group">
                                                 <label for="patient_image-input" class=" form-control-label">Profile Image</label>
-                                                <input type="file" id="patient_image" name="patient_image" class="form-control-file" required="">
+                                                <input type="file" id="patient_image" required name="patient_image" class="form-control-file" required="">
                                               </div>
                                           </div>
 
@@ -487,14 +486,14 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="cell" class="control-label mb-1">Cell</label>
-                                                    <input id="cell" name="cell" type="text" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cell="Please enter a valid month and year"  autocomplete="cell" maxlength="15">
+                                                    <input id="cell" name="cell" required type="text" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cell="Please enter a valid month and year"  autocomplete="cell" maxlength="15">
 
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <label for="village" class="control-label mb-1">Village</label>
                                                 <div class="input-group">
-                                                    <input id="village" name="village" type="text" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" autocomplete="off" maxlength="10">
+                                                    <input id="village" name="village" required type="text" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" autocomplete="off" maxlength="10">
 
                                                 </div>
                                             </div>

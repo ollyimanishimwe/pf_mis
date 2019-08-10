@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model
 {
     //
+    public function lab()
+    {
+        return $this->hasMany('App\Lab');
+    }
     public function nurse()
     {
-        return $this->hasMany('App\Nurse', 'n_id');
+        return $this->hasMany('App\Nurse');
     }
 }

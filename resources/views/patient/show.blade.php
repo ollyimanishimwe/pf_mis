@@ -36,8 +36,8 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="./"><img src="../images/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="./"><img src="../images/logo2.png" alt="Logo"></a>
                 </div>
 
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -47,7 +47,7 @@
                         </li> --}}
                         <h3 class="menu-title">Tasks</h3><!-- /.menu-title -->
                         <li class="menu-item-has-children dropdown">
-                            <a href="/pharmacist" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Search</a>
+                            <a href="{{url('/patient')}}"> <i class="menu-icon fa fa-laptop"></i>Search</a>
                             {{-- <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
                                 <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
@@ -63,7 +63,7 @@
                             </ul> --}}
                         </li>
                         <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>View</a>
+                            <a href="{{url('/patient/create')}}"> <i class="menu-icon fa fa-laptop"></i>Register</a>
                             {{-- <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
                                 <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>

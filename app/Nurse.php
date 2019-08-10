@@ -10,6 +10,6 @@ class Nurse extends Model
     //
     public function patient()
     {
-        return $this->belongsTo('App\Patient', 'n_id');
+        return $this->belongsTo('App\Patient');
     }
 }

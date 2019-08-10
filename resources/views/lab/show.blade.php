@@ -355,7 +355,7 @@
                                           <div class="form-group">
                                             <label for="lab_examinations" class="control-label mb-1">Lab Examinations</label>
 
-                                                <textarea name="lab_examinations" id="lab_examinations" rows="3" value="" class="is-valid form-control-success form-control" readonly="" >{{($nurse->lab_examinations)}}</textarea>
+                                                <textarea name="lab_examinations" id="lab_examinations" rows="3" value="" class="is-valid form-control-success form-control" readonly="" >{{$nurse->lab_examinations    }}</textarea>
                                                 <input type="hidden" value="{{$patient->id}}" name="patient_id">
                                           </div>
                                         </div>

@@ -38,9 +38,10 @@ class PatientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request )
     {
-        //codes to store paients information
+        $patient = Patient::all();
+                //codes to store paients information
         $imageName = str_slug($request->n_id).'.'.request()->patient_image->getClientOriginalExtension();
 
 
@@ -66,7 +67,8 @@ class PatientController extends Controller
         $patient->patient_image = $imageName;
         $patient->save();
 
-        return redirect()->back();
+        return view('patient.verify')
+                    ->with('patient' , $patient);
     }
 
     /**
@@ -80,6 +82,14 @@ class PatientController extends Controller
         //displays the patient profile
         $patient = Patient::find($id);
         return view('patient.show')
+                    ->with('patient' , $patient);
+    }
+
+    public function verify( $id)
+    {
+        //displays the patient profile
+        $patient = Patient::find($id);
+        return view('patient.verify')
                     ->with('patient' , $patient);
     }
 

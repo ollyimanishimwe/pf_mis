@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>mis</title>
+	<title>{{ config('app.name', 'Laravel') }}</title>
 	<link rel="stylesheet" type="text/css" href="../assets/css/styleindex.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
