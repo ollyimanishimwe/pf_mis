@@ -49,7 +49,7 @@
                         </li> --}}
                         <h3 class="menu-title">Tasks</h3><!-- /.menu-title -->
                         <li class="menu-item-has-children dropdown">
-                            <a href="/pharmacist" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Search</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Search</a>
                             {{-- <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
                                 <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
@@ -65,7 +65,7 @@
                             </ul> --}}
                         </li>
                         <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>View</a>
+                            {{-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>View</a> --}}
                             {{-- <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
                                 <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>

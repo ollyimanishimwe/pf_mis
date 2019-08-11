@@ -12,6 +12,13 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        // $this->middleware('role:super', ['only'=>'show']);
+        $this->middleware('role:receptionist');
+    }
     public function index()
     {
         //first page to check all patients

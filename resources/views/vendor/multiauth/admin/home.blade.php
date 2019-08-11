@@ -44,27 +44,27 @@
     @admin('super')
         <a class="btn btn-primary" href="{{ route('admin.show') }}">{{ ucfirst(config('multiauth.prefix')) }}</a>
         <a class="btn btn-primary" href="{{ route('admin.roles') }}">Roles</a>
-        <a class="btn btn-primary" href="{{ route('employee.create') }}">Register Employee</a>
+        <a class="btn btn-primary" href="{{ route('admin.register') }}">Register Employee</a>
     @endadmin
 
     @admin('receptionist')
         <a class="btn btn-primary" href="{{ route('patient.create') }}">Register a patient</a>
-        <a class="btn btn-primary" href="{{ route('patient.index') }}">Search</a>
+        <a class="btn btn-primary" href="{{ route('patient.index') }}">receptionist</a>
     @endadmin
     @admin('accountant')
-        <a class="btn btn-primary" href="{{ route('accountant.index') }}">Search</a>
+        <a class="btn btn-primary" href="{{ route('accountant.index') }}">Accountant</a>
     @endadmin
     @admin('nurse')
-    <a class="btn btn-primary" href="{{ route('nurse.index') }}">Search</a>
+    <a class="btn btn-primary" href="{{ route('nurse.index') }}">Nurse</a>
     @endadmin
     @admin('doctor')
-    <a class="btn btn-primary" href="{{ route('doctor.index') }}">Search</a>
+    <a class="btn btn-primary" href="{{ route('doctor.index') }}">Doctor</a>
     @endadmin
     @admin('pharmacist')
-    <a class="btn btn-primary" href="{{ route('pharmacist.index') }}">Search</a>
+    <a class="btn btn-primary" href="{{ route('pharmacist.index') }}">Pharmacist</a>
     @endadmin
     @admin('labtech')
-    <a class="btn btn-primary" href="{{ route('lab.index') }}">Search</a>
+    <a class="btn btn-primary" href="{{ route('lab.index') }}">Labtech</a>
     @endadmin
 
 

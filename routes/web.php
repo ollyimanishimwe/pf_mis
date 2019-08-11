@@ -24,12 +24,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('employee' , 'EmployeeController');
-Route::resource('patient' , 'PatientController');
-Route::resource('doctor' , 'DoctorController');
-Route::resource('nurse' , 'NurseController');
-Route::resource('lab' , 'LabController');
-Route::resource('accountant' , 'AccountantController');
-Route::resource('pharmacist' , 'PharmacistController');
-Route::resource('service' , 'ServiceController');
-Route::resource('medecine' , 'MedecineController');
+Route::resource('employee' , 'EmployeeController')->middleware('role:super');
+Route::resource('patient' , 'PatientController')->middleware('role:receptionist,nurse');
+Route::resource('doctor' , 'DoctorController')->middleware('role:doctor');
+Route::resource('nurse' , 'NurseController')->middleware('role:nurse');
+Route::resource('lab' , 'LabController')->middleware('role:labtech,nurse');
+Route::resource('accountant' , 'AccountantController')->middleware('role:accountant');
+Route::resource('pharmacist' , 'PharmacistController')->middleware('role:pharmacist');
+

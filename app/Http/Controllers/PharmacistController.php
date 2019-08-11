@@ -17,6 +17,13 @@ class PharmacistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        // $this->middleware('role:super', ['only'=>'show']);
+        $this->middleware('role:pharmacist');
+    }
     public function index()
     {
         //
@@ -45,6 +52,18 @@ class PharmacistController extends Controller
     public function store(Request $request)
     {
         //
+        $patients = Patient::all();
+
+        $pharmacist = new Pharmacist;
+        $pharmacist->patient_id = $request->input('patient_id');
+        $pharmacist->treatment = $request->input('treatment');
+        $pharmacist->treatment_given = $request->input('treatment_given');
+
+        $pharmacist->save();
+
+        // return dd($lab);
+        return view('pharmacist.index')
+        -> with ('patients',$patients);
     }
 
     /**
@@ -57,9 +76,11 @@ class PharmacistController extends Controller
     {
         //
         $accountant = Accountant::find($id);
+        $patient = Patient::find($id);
         $doctor = Doctor::find($id);
         return view('pharmacist.show')
                     ->with('accountant' , $accountant)
+                    ->with('patient' , $patient)
                     ->with('doctor' , $doctor);
     }
 

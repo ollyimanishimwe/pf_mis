@@ -12,6 +12,12 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('role:super', ['only'=>'show']);
+    }
     public function index()
     {
         //
@@ -19,6 +25,8 @@ class ServiceController extends Controller
         return view('service.index')
         ->with('service',$service);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -47,7 +55,7 @@ class ServiceController extends Controller
         $service->quantity = $request->input('quantity');
 
         $service->save();
-        
+
         return view('service.index')
         ->with('service',$service);
 

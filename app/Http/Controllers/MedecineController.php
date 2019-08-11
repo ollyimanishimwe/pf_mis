@@ -12,6 +12,12 @@ class MedecineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->middleware('role:super', ['only'=>'show']);
+    }
     public function index()
     {
         //

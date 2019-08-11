@@ -16,6 +16,13 @@ class AccountantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        // $this->middleware('role:super', ['only'=>'show']);
+        $this->middleware('role:accountant');
+    }
     public function index()
     {
         //
@@ -44,6 +51,26 @@ class AccountantController extends Controller
     public function store(Request $request)
     {
         //
+        $accountant = new Accountant;
+        $accountant->patient_id = $request->input('patient_id');
+        $accountant->services = $request->input('services');
+        $accountant->total_amount = $request->input('total_amount');
+        $accountant->paid = $request->input('paid');
+        $accountant->assured_amount = $request->input('assured_amount');
+
+        if ($accountant->assured_amount == '100% of Tot Amount') {
+            $accountant->rest = $accountant->total_amount - $accountant->paid;
+
+        } else {
+            $accountant->rest = $accountant->assured_amount - $accountant->paid;
+
+        }
+
+        $accountant->save();
+
+        $patients = Patient::all();
+        return view('accountant.index')
+               -> with ('patients',$patients);
     }
 
     /**
@@ -57,8 +84,10 @@ class AccountantController extends Controller
         //
         $patient = Patient::find($id);
         $doctor = Doctor::find($id);
+        $nurse = Nurse::find($id);
         return view('accountant.show')
                     ->with('doctor' , $doctor)
+                    ->with('nurse' , $nurse)
                     ->with('patient' , $patient);
     }
 

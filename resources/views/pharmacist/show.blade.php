@@ -38,8 +38,8 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="./"><img src="../images/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="./"><img src="../images/logo2.png" alt="Logo"></a>
                 </div>
 
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -49,7 +49,7 @@
                         </li> --}}
                         <h3 class="menu-title">Tasks</h3><!-- /.menu-title -->
                         <li class="menu-item-has-children dropdown">
-                            <a href="/pharmacist" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Search</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Search</a>
                             {{-- <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
                                 <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
@@ -65,7 +65,7 @@
                             </ul> --}}
                         </li>
                         <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>View</a>
+                            {{-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>View</a> --}}
                             {{-- <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
                                 <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
@@ -279,7 +279,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Accountant</h1>
+                        <h1>Pharmacist</h1>
                     </div>
                 </div>
             </div>
@@ -287,7 +287,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Accountant</a></li>
+                            <li><a href="#">Pharmacist</a></li>
                             <li><a href="#">Data</a></li>
                             <li class="active">Form</li>
                         </ol>
@@ -312,28 +312,28 @@
                                       <h3 class="text-center">Pharmacist Registration Form</h3>
                                   </div>
                                   <hr>
-                                  <form method="POST" action="{{ action('AccountantController@store') }}" enctype="multipart/form-data">
+                                  <form method="POST" action="{{ action('PharmacistController@store') }}" enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="row">
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label for="n_id" class="control-label mb-1">National ID</label>
-                                                    <input id="n_id" name="n_id" type="text" class="is-valid form-control-success form-control" value="{{$accountant->n_id}}" data-val="true" data-val-required="Please enter the National ID" data-val-n_id="Please enter a valid National ID" placeholder="" autocomplete="n_id" maxlength="16" readonly="">
+                                                    <input id="n_id" name="" type="text" class="is-valid form-control-success form-control" value="{{$patient->n_id}}" data-val="true" data-val-required="Please enter the National ID" data-val-n_id="Please enter a valid National ID" placeholder="" autocomplete="n_id" maxlength="16" readonly="">
 
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <label for="names" class="control-label mb-1">Names</label>
                                                 <div class="input-group">
-                                                    <input id="names" name="names" type="text" class="is-valid form-control-success form-control" value="{{$accountant->names}}" data-val="true" data-val-required="Please enter the Names" data-val-names="Please enter the valid Names" autocomplete="names" maxlength="25" readonly="">
+                                                    <input id="names" name="" type="text" class="is-valid form-control-success form-control" value="{{$patient->names}}" data-val="true" data-val-required="Please enter the Names" data-val-names="Please enter the valid Names" autocomplete="names" maxlength="25" readonly="">
 
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                       <div class="form-group">
-                                                          <label for="family_chief" class="control-label mb-1">Treatment</label>
-                                                          <input id="family_chief" name="family_chief" type="text" class="is-valid form-control-success form-control" value="{{$doctor->treatment}}" data-val="true" data-val-required="Please enter the chief of family" data-val-insurance_company="Please enter a valid cheif of family"  autocomplete="" maxlength="15" readonly="">
+                                                          <label for="treatment" class="control-label mb-1">Treatment</label>
+                                                          <input id="treatment" name="treatment" type="text" class="is-valid form-control-success form-control" value="{{$doctor->treatment}}" data-val="true" data-val-required="Please enter the chief of family" data-val-insurance_company="Please enter a valid cheif of family"  autocomplete="" maxlength="15" readonly="">
 
                                                       </div>
                                               </div>
@@ -342,7 +342,8 @@
 
                                               <label for="dob" class="control-label mb-1">Insurance Company</label>
                                                 <div class="input-group">
-                                                    <input id="dob" name="dob" type="text" class="is-valid form-control-success form-control" value="{{$doctor->treatment}}" data-val="true" data-val-required="Please enter the Date Of Birth"  readonly="" >
+                                                    <input id="dob" name="" type="text" class="is-valid form-control-success form-control" value="{{$patient->insurance_company}}" data-val="true" data-val-required="Please enter the Date Of Birth"  readonly="" >
+                                                    <input type="hidden" value="{{$patient->id}}" name="patient_id">
 
                                                 </div>
 
@@ -356,21 +357,21 @@
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label for="services" class="control-label mb-1">Paid</label>
-                                                    <input id="services" name="services" type="text" class="is-valid form-control-success form-control" value="{{$accountant->paid}}" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"  autocomplete="insurance_company" maxlength="15" readonly="">
+                                                    <input id="services" name="" type="text" class="is-valid form-control-success form-control" value="{{$accountant->paid}}" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"  autocomplete="insurance_company" maxlength="15" readonly="">
 
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label for="total_amount" class="control-label mb-1">Rest</label>
-                                                    <input id="total_amount" name="total_amount" type="text" class="is-valid form-control-success form-control" value="{{$accountant->rest}}" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"  autocomplete="insurance_company" maxlength="15" readonly="">
+                                                    <input id="total_amount" name="" type="text" class="is-valid form-control-success form-control" value="{{$accountant->rest}}" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"  autocomplete="insurance_company" maxlength="15" readonly="">
 
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="total_amount" class="control-label mb-1">Offered</label>
-                                                    <input id="total_amount" name="total_amount" type="text" class="is-valid form-control-success form-control" value="{{$accountant->offered}}" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"  autocomplete="insurance_company" maxlength="15" >
+                                                    <label for="treatment_given" class="control-label mb-1">Offered</label>
+                                                    <input id="treatment_given" name="treatment_given" type="text" class="is-valid form-control-success form-control" value="{{$accountant->offered}}" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"  autocomplete="insurance_company" maxlength="15" >
 
                                                 </div>
                                             </div>

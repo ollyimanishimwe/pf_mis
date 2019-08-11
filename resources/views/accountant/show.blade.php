@@ -49,7 +49,7 @@
                         </li> --}}
                         <h3 class="menu-title">Tasks</h3><!-- /.menu-title -->
                         <li class="menu-item-has-children dropdown">
-                            <a href="/pharmacist" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Search</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Search</a>
                             {{-- <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
                                 <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
@@ -65,7 +65,7 @@
                             </ul> --}}
                         </li>
                         <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>View</a>
+                            {{-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>View</a> --}}
                             {{-- <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
                                 <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
@@ -355,23 +355,36 @@
 
                                             <div class="col-3">
                                                 <div class="form-group">
-                                                    <label for="services" class="control-label mb-1">Services</label>
-                                                    <input id="services" name="services" type="text" class="is-valid form-control-success form-control" value="Consultation, Medecine(qualthem, asspilin)" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"  autocomplete="insurance_company" maxlength="15" readonly="">
+                                                    <label for="services" class="control-label mb-1">Services Offerd</label>
+
+                                                    <input id="services" name="services" type="text" class="is-valid form-control-success form-control" value="{{$nurse->lab_examinations}}"  maxlength="15" readonly="">
 
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="form-group">
-                                                    <label for="total_amount" class="control-label mb-1">Total amount</label>
-                                                    <input id="total_amount" name="total_amount" type="text" class="is-valid form-control-success form-control" value="1200" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"   maxlength="15" readonly="">
-
+                                                    <label for="total_amount" class="control-label mb-1">Total amount Rwf</label>
+                                                    @if (sizeof(array($nurse->lab_examinations)) == 0)
+                                                        <input id="total_amount" name="total_amount" type="text" class="is-valid form-control-success form-control" value="1200" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"   maxlength="15" readonly="">
+                                                    @elseif (sizeof(array($nurse->lab_examinations)) == 1)
+                                                        <input id="total_amount" name="total_amount" type="text" class="is-valid form-control-success form-control" value="2300" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"   maxlength="15" readonly="">
+                                                    @else
+                                                        <input id="total_amount" name="total_amount" type="text" class="is-valid form-control-success form-control" value="5300" data-val="true" data-val-required="Please enter the insurance company" data-val-insurance_company="Please enter a valid insurance copmny"   maxlength="15" readonly="">
+                                                    @endif
                                                 </div>
                                             </div>
                                           <div class="col-3">
-                                            <label for="insurance_id" class="control-label mb-1">Assured Amount</label>
+                                            <label for="insurance_id" class="control-label mb-1">You Must Pay Rwf</label>
                                             <div class="assured_amount-group">
-                                                <input id="assured_amount" name="assured_amount" type="text" class="is-valid form-control-success form-control" value="90%" data-val="true" data-val-required="Please enter the insurance id" data-val-cc-cvc="Please enter a valid insurance id" autocomplete="off" maxlength="10" >
-
+                                                @if (($patient->insurance == 'RSSB' OR 'rssb') AND (sizeof(array($nurse->lab_examinations)) == 0) )
+                                                    <input id="assured_amount" name="assured_amount" readonly type="text" class="is-valid form-control-success form-control" value="120" data-val="true" data-val-required="Please enter the insurance id" data-val-cc-cvc="Please enter a valid insurance id" autocomplete="off" maxlength="10" >
+                                                @elseif (($patient->insurance == 'RSSB' OR 'rssb') AND (sizeof(array($nurse->lab_examinations)) == 1) )
+                                                    <input id="assured_amount" name="assured_amount" readonly type="text" class="is-valid form-control-success form-control" value="230" data-val="true" data-val-required="Please enter the insurance id" data-val-cc-cvc="Please enter a valid insurance id" autocomplete="off" maxlength="10" >
+                                                @elseif (($patient->insurance == 'RSSB' OR 'rssb') AND (sizeof(array($nurse->lab_examinations)) >= 2) )
+                                                    <input id="assured_amount" name="assured_amount" readonly type="text" class="is-valid form-control-success form-control" value="530" data-val="true" data-val-required="Please enter the insurance id" data-val-cc-cvc="Please enter a valid insurance id" autocomplete="off" maxlength="10" >
+                                                @else
+                                                    <input id="assured_amount" name="assured_amount" readonly type="text" class="is-valid form-control-success form-control" value="100% of Tot Amount" data-val="true" data-val-required="Please enter the insurance id" data-val-cc-cvc="Please enter a valid insurance id" autocomplete="off" maxlength="10" >
+                                                @endif
                                             </div>
                                           </div>
 
@@ -380,10 +393,11 @@
                                             <div class="form-group">
                                                 <label for="paid" class="control-label mb-1">Paid</label>
                                                 <div class="input-group">
-                                                    <input id="paid" name="paid" type="text" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the insurance id" data-val-cc-cvc="Please enter a valid insurance id" autocomplete="off" maxlength="10" >
-                                            </div>
+                                                    <input type="hidden" value="{{$patient->id}}" name="patient_id">
+                                                    <input id="paid" name="paid" type="number" class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the insurance id" data-val-cc-cvc="Please enter a valid insurance id" autocomplete="off" maxlength="10" >
+                                                </div>
 
-                                          </div>
+                                            </div>
 
 
                                           </div>
