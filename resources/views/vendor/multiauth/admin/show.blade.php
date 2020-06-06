@@ -3,6 +3,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+                <a href="{{url('/admin/home')}}" class="btn btn-primary">HOME</a>                <div class="card-header">Edit details of {{$admin->name}}</div>
+
             <div class="card">
                 <div class="card-header">
                     {{ ucfirst(config('multiauth.prefix')) }} List

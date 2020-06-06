@@ -364,6 +364,8 @@
                                                   <label for="pregnancy_status" class="control-label mb-1">Pregnancy Status</label>
                                                   <input id="pregnancy_status" name="" type="text" class="is-valid form-control-success form-control" value="{{$nurse->pregnancy_status}}" data-val="true" data-val-required="Please enter the insurance id" data-val-cc-cvc="Please enter a valid insurance id" autocomplete="off" maxlength="10" readonly>
                                                   <input type="hidden" value="{{$patient->id}}" name="patient_id">
+                                                  <input type="hidden" value="{{$patient->phone}}" name="phone">
+                                                  <input type="hidden" value="{{$patient->names}}" name="names">
                                            </div>
                                        </div>
 

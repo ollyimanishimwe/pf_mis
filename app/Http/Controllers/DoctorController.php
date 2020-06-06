@@ -6,6 +6,7 @@ use App\Doctor;
 use App\Nurse;
 use App\Lab;
 use App\Patient;
+use Twilio\Rest\Client;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -51,14 +52,20 @@ class DoctorController extends Controller
     {
         //
         $patients = Patient::all();
+
         $doctor = new Doctor;
         $doctor->patient_id = $request->input('patient_id');
         $doctor->treatment = $request->input('treatment');
 
         $doctor->save();
+        $phone = $request->input('phone');
+        $names = $request->input('names');
+
+        $this->sendMessage($names.' wandikiwe imiti ikurikira : '.$doctor->treatment.' murakoresha iyi kode mu kwishyura: 3575 ' , $phone);
 
         // return dd($lab);
         return view('doctor.index')
+        ->with(['success' => "message sent to {$names} successively"])
         -> with ('patients',$patients);
     }
 
@@ -112,5 +119,14 @@ class DoctorController extends Controller
     public function destroy(Doctor $doctor)
     {
         //
+    }
+
+    private function sendMessage($message, $recipients)
+    {
+        $account_sid = getenv("TWILIO_SID");
+        $auth_token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_number = getenv("TWILIO_NUMBER");
+        $client = new Client($account_sid, $auth_token);
+        $client->messages->create($recipients, ['from' => $twilio_number, 'body' => $message]);
     }
 }

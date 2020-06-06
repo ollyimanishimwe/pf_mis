@@ -346,9 +346,9 @@
                                             <div class="col-3">
                                                 <div class="form-group">
                                                     <label for="phone" class="control-label mb-1">Phone Number</label>
-                                                    <input id="phone" name="phone" type="number" required
-                                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                                maxlength = "10"
+                                                    <input id="phone" name="phone" type="text" required
+                                                    {{-- oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" --}}
+                                                maxlength = "15"
                                                     class="is-valid form-control-success form-control" value="" data-val="true" data-val-required="Please enter the phone numbery" data-val-insurance_company="Please enter a valid phone number"  autocomplete="" maxlength="15">
 
                                                 </div>
