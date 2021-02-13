@@ -7,7 +7,7 @@
                 <div class="card-header bg-info text-white">Add New Role</div>
 
                 <div class="card-body">
-    @include('multiauth::message')
+                    @include('multiauth::message')
                     <form action="{{ route('admin.role.store') }}" method="post">
                         @csrf
                         <div class="form-group">
